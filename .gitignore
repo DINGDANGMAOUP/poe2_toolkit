@@ -1,0 +1,7 @@
+/target
+/.build
+/.local
+*.log
+/dist/
+__pycache__/
+.DS_Store

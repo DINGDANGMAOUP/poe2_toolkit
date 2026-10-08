@@ -1,0 +1,34 @@
+{
+  "package": "accesskit_macos",
+  "version": "0.26.3",
+  "declared_license": "MIT OR Apache-2.0",
+  "selected_license": "MIT",
+  "authors": [
+    "The AccessKit contributors"
+  ],
+  "copyright_notices": [
+    "Copyright 2018 The Chromium Authors. All rights reserved.",
+    "Copyright 2022 The AccessKit Authors. All rights reserved.",
+    "Copyright 2023 The AccessKit Authors. All rights reserved."
+  ],
+  "repository": "https://github.com/AccessKit/accesskit",
+  "registry": "https://crates.io/crates/accesskit_macos/0.26.3",
+  "source_commit": "c88605b96d04431f9c3c792464a0f2f253480e94",
+  "upstream_notices": [
+    {
+      "name": "LICENSE-APACHE",
+      "url": "https://github.com/AccessKit/accesskit/blob/c88605b96d04431f9c3c792464a0f2f253480e94/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "name": "LICENSE-MIT",
+      "url": "https://github.com/AccessKit/accesskit/blob/c88605b96d04431f9c3c792464a0f2f253480e94/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "name": "LICENSE.chromium",
+      "url": "https://github.com/AccessKit/accesskit/blob/c88605b96d04431f9c3c792464a0f2f253480e94/LICENSE.chromium",
+      "sha256": "845022e0c1db1abb41a6ba4cd3c4b674ec290f3359d9d3c78ae558d4c0ed9308"
+    }
+  ]
+}

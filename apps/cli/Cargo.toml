@@ -1,0 +1,18 @@
+[package]
+name = "poe2-cli"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "poe2ctl"
+path = "src/main.rs"
+
+[dependencies]
+poe2-core.workspace = true
+poe2-service.workspace = true
+poe2-formats.workspace = true
+anyhow.workspace = true
+serde_json.workspace = true
+serde.workspace = true
+tokio.workspace = true
+clap = { version = "4", features = ["derive"] }

@@ -1,0 +1,64 @@
+name: Native packages
+on:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  native:
+    name: ${{ matrix.target }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2025
+            target: windows-x86_64
+          - os: macos-15
+            target: macos-aarch64
+          - os: macos-15-intel
+            target: macos-x86_64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    env:
+      CARGO_TERM_COLOR: always
+      CARGO_INCREMENTAL: '0'
+      MACOSX_DEPLOYMENT_TARGET: '14.0'
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_NOLOGO: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install pinned Rust toolchain
+        shell: bash
+        run: rustup show active-toolchain
+      - uses: Swatinem/rust-cache@49a0bdc70d2e1b713ca9e2869b211fcce03d3c1c # v2
+        with:
+          key: ${{ matrix.target }}-release
+          cache-on-failure: true
+      - name: Format
+        run: cargo fmt --all --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --release --locked -- -D warnings
+      - name: Build applications
+        run: cargo build --workspace --release --locked
+      - name: Command-line interface
+        shell: bash
+        run: target/release/poe2ctl --help
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '8.0.x'
+      - name: Install pinned Velopack
+        run: dotnet tool install --global vpk --version 1.2.0
+      - name: Package native installers
+        run: python .github/scripts/package.py --target ${{ matrix.target }}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: package-${{ matrix.target }}
+          path: dist/${{ matrix.target }}/*
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+          overwrite: true

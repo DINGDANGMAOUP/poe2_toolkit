@@ -1,0 +1,15 @@
+{
+  "package": "block",
+  "version": "0.1.6",
+  "declared_license": "MIT",
+  "selected_license": "MIT",
+  "authors": [
+    "Steven Sheldon"
+  ],
+  "copyright_notices": [],
+  "repository": "http://github.com/SSheldon/rust-block",
+  "registry": "https://crates.io/crates/block/0.1.6",
+  "source_commit": null,
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}

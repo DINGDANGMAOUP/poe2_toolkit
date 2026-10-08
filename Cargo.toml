@@ -1,0 +1,32 @@
+[workspace]
+members = ["apps/desktop", "apps/cli", "crates/core", "crates/formats", "crates/service"]
+default-members = ["apps/desktop", "apps/cli"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace.dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["arbitrary_precision"] }
+thiserror = "2"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+sha2 = "0.10"
+hex = "0.4"
+rust_decimal = { version = "1", features = ["serde"] }
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "macros", "fs", "io-util"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "gzip"] }
+poe2-core = { path = "crates/core" }
+poe2-formats = { path = "crates/formats" }
+poe2-service = { path = "crates/service" }
+gpui-kit = "=0.6.6"
+
+[profile.dev]
+debug = 1
+
+[profile.release]
+lto = "thin"
+strip = "debuginfo"

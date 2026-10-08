@@ -1,0 +1,13 @@
+{
+  "package": "oozextract",
+  "version": "0.5.5",
+  "declared_license": "MIT",
+  "selected_license": "MIT",
+  "authors": [],
+  "copyright_notices": [],
+  "repository": "https://github.com/lvlvllvlvllvlvl/oozextract",
+  "registry": "https://crates.io/crates/oozextract/0.5.5",
+  "source_commit": "b5b43a275a3f34c48b8ea92b3ac7588bb793fa94",
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}

@@ -1,0 +1,15 @@
+{
+  "package": "leak",
+  "version": "0.1.2",
+  "declared_license": "Apache-2.0 OR MIT",
+  "selected_license": "MIT",
+  "authors": [
+    "Cody P Schafer <dev@codyps.com>"
+  ],
+  "copyright_notices": [],
+  "repository": "https://github.com/jmesmon/leak.git",
+  "registry": "https://crates.io/crates/leak/0.1.2",
+  "source_commit": null,
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}

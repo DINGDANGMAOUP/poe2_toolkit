@@ -1,0 +1,20 @@
+{
+  "package": "malloc_buf",
+  "version": "0.0.6",
+  "declared_license": "MIT",
+  "selected_license": "MIT",
+  "authors": [
+    "Steven Sheldon"
+  ],
+  "copyright_notices": [],
+  "repository": "https://github.com/SSheldon/malloc_buf",
+  "registry": "https://crates.io/crates/malloc_buf/0.0.6",
+  "source_commit": null,
+  "upstream_notices": [
+    {
+      "name": "LICENSE",
+      "url": "https://github.com/SSheldon/malloc_buf/blob/d9a3e539642bd90e07df458d226b19cdfa606863/LICENSE",
+      "sha256": "aced7b57e474a63edb5a724954222bf7659c01ceef0e648a03af799582991db7"
+    }
+  ]
+}

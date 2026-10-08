@@ -1,0 +1,17 @@
+{
+  "package": "pathfinder_simd",
+  "version": "0.5.6",
+  "declared_license": "MIT OR Apache-2.0",
+  "selected_license": "MIT",
+  "authors": [
+    "Patrick Walton <pcwalton@mimiga.net>"
+  ],
+  "copyright_notices": [
+    "Copyright © 2019 The Pathfinder Project Developers."
+  ],
+  "repository": "https://github.com/servo/pathfinder",
+  "registry": "https://crates.io/crates/pathfinder_simd/0.5.6",
+  "source_commit": "6c3c0466f451c5bd2007087728cd168798cd64e8",
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}

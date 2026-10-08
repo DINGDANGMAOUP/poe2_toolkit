@@ -1,0 +1,876 @@
+{
+  "source": "https://github.com/poe-tool-dev/dat-schema",
+  "commit": "784017383e819fc3be095dce8937873e00bcaf64",
+  "tables": {
+    "BaseItemTypes": {
+      "row_size": 368,
+      "fields": {
+        "Id": {
+          "offset": 0,
+          "size": 8,
+          "kind": "string"
+        },
+        "ItemClass": {
+          "offset": 8,
+          "size": 16,
+          "kind": "ItemClasses"
+        },
+        "Width": {
+          "offset": 24,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Height": {
+          "offset": 28,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Name": {
+          "offset": 32,
+          "size": 8,
+          "kind": "string"
+        },
+        "InheritsFrom": {
+          "offset": 40,
+          "size": 8,
+          "kind": "string"
+        },
+        "DropLevel": {
+          "offset": 48,
+          "size": 4,
+          "kind": "i32"
+        },
+        "FlavourText": {
+          "offset": 52,
+          "size": 16,
+          "kind": "FlavourText"
+        },
+        "Implicit_Mods": {
+          "offset": 68,
+          "size": 16,
+          "kind": "[Mods]"
+        },
+        "SizeOnGround": {
+          "offset": 84,
+          "size": 4,
+          "kind": "i32"
+        },
+        "SoundEffect": {
+          "offset": 88,
+          "size": 16,
+          "kind": "SoundEffects"
+        },
+        "Tags": {
+          "offset": 104,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "ModDomain": {
+          "offset": 120,
+          "size": 4,
+          "kind": "ModDomains"
+        },
+        "ItemVisualIdentity": {
+          "offset": 124,
+          "size": 16,
+          "kind": "ItemVisualIdentity"
+        },
+        "HASH32": {
+          "offset": 140,
+          "size": 4,
+          "kind": "u32"
+        },
+        "VendorRecipe_AchievementItems": {
+          "offset": 144,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "Inflection": {
+          "offset": 160,
+          "size": 8,
+          "kind": "string"
+        },
+        "Equip_AchievementItem": {
+          "offset": 168,
+          "size": 16,
+          "kind": "AchievementItems"
+        },
+        "IsCorrupted": {
+          "offset": 184,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Identify_AchievementItems": {
+          "offset": 185,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "IdentifyMagic_AchievementItems": {
+          "offset": 201,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "FragmentBaseItemType": {
+          "offset": 217,
+          "size": 16,
+          "kind": "BaseItemTypes"
+        },
+        "UncutGemSoundEffect": {
+          "offset": 234,
+          "size": 16,
+          "kind": "SoundEffects"
+        },
+        "ItemStance": {
+          "offset": 250,
+          "size": 16,
+          "kind": "ItemStances"
+        },
+        "Unmodifiable": {
+          "offset": 267,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Achievement": {
+          "offset": 268,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "ShopTag": {
+          "offset": 284,
+          "size": 16,
+          "kind": "ShopTag"
+        }
+      }
+    },
+    "Words": {
+      "row_size": 64,
+      "fields": {
+        "Wordlist": {
+          "offset": 0,
+          "size": 4,
+          "kind": "Wordlists"
+        },
+        "Text": {
+          "offset": 4,
+          "size": 8,
+          "kind": "string"
+        },
+        "SpawnWeight_Tags": {
+          "offset": 12,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "SpawnWeight_Values": {
+          "offset": 28,
+          "size": 16,
+          "kind": "[i32]"
+        },
+        "HASH32": {
+          "offset": 44,
+          "size": 4,
+          "kind": "u32"
+        },
+        "Text2": {
+          "offset": 48,
+          "size": 8,
+          "kind": "string"
+        },
+        "Inflection": {
+          "offset": 56,
+          "size": 8,
+          "kind": "string"
+        }
+      }
+    },
+    "WorldAreas": {
+      "row_size": 744,
+      "fields": {
+        "Id": {
+          "offset": 0,
+          "size": 8,
+          "kind": "string"
+        },
+        "Name": {
+          "offset": 8,
+          "size": 8,
+          "kind": "string"
+        },
+        "Act": {
+          "offset": 16,
+          "size": 4,
+          "kind": "i32"
+        },
+        "IsTown": {
+          "offset": 20,
+          "size": 1,
+          "kind": "bool"
+        },
+        "HasWaypoint": {
+          "offset": 21,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Connections": {
+          "offset": 22,
+          "size": 16,
+          "kind": "[WorldAreas]"
+        },
+        "AreaLevel": {
+          "offset": 38,
+          "size": 4,
+          "kind": "i32"
+        },
+        "HASH16": {
+          "offset": 42,
+          "size": 2,
+          "kind": "u16"
+        },
+        "LoadingScreens": {
+          "offset": 44,
+          "size": 16,
+          "kind": "[string]"
+        },
+        "FlagOnEntered": {
+          "offset": 60,
+          "size": 16,
+          "kind": "[QuestFlags]"
+        },
+        "RequiredFlags": {
+          "offset": 76,
+          "size": 16,
+          "kind": "[QuestFlags]"
+        },
+        "Topologies": {
+          "offset": 96,
+          "size": 16,
+          "kind": "[Topologies]"
+        },
+        "ParentTown": {
+          "offset": 112,
+          "size": 16,
+          "kind": "WorldAreas"
+        },
+        "Bosses_MonsterVarietiesKeys": {
+          "offset": 164,
+          "size": 16,
+          "kind": "[MonsterVarieties]"
+        },
+        "Monsters_MonsterVarietiesKeys": {
+          "offset": 180,
+          "size": 16,
+          "kind": "[MonsterVarieties]"
+        },
+        "SpawnWeight_TagsKeys": {
+          "offset": 196,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "SpawnWeight_Values": {
+          "offset": 212,
+          "size": 16,
+          "kind": "[i32]"
+        },
+        "IsMapArea": {
+          "offset": 228,
+          "size": 1,
+          "kind": "bool"
+        },
+        "FullClear_AchievementItemsKeys": {
+          "offset": 229,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "PVPType": {
+          "offset": 245,
+          "size": 16,
+          "kind": "PVPTypes"
+        },
+        "AchievementItemsKey": {
+          "offset": 261,
+          "size": 16,
+          "kind": "AchievementItems"
+        },
+        "AreaMods": {
+          "offset": 277,
+          "size": 16,
+          "kind": "[Mods]"
+        },
+        "MaxLevel": {
+          "offset": 298,
+          "size": 4,
+          "kind": "i32"
+        },
+        "IsHideout": {
+          "offset": 306,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Tags": {
+          "offset": 315,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "IsUniqueMapArea": {
+          "offset": 403,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Environment": {
+          "offset": 448,
+          "size": 16,
+          "kind": "Environments"
+        },
+        "TerrainPlugins": {
+          "offset": 468,
+          "size": 16,
+          "kind": "TerrainPlugins"
+        },
+        "LeagueChances": {
+          "offset": 534,
+          "size": 16,
+          "kind": "WorldAreaLeagueChances"
+        },
+        "Ruleset": {
+          "offset": 566,
+          "size": 16,
+          "kind": "Rulesets"
+        },
+        "QuestFlags": {
+          "offset": 634,
+          "size": 16,
+          "kind": "[QuestFlags]"
+        }
+      }
+    },
+    "EndgameMaps": {
+      "row_size": 241,
+      "fields": {
+        "WorldArea": {
+          "offset": 0,
+          "size": 16,
+          "kind": "WorldAreas"
+        },
+        "MonsterPacks": {
+          "offset": 16,
+          "size": 16,
+          "kind": "[MonsterPacks]"
+        },
+        "FlavourText": {
+          "offset": 32,
+          "size": 8,
+          "kind": "string"
+        },
+        "MapPin": {
+          "offset": 60,
+          "size": 16,
+          "kind": "EndgameMapPins"
+        },
+        "Decorations": {
+          "offset": 76,
+          "size": 16,
+          "kind": "EndgameMapDecorations"
+        },
+        "MapContentSet": {
+          "offset": 92,
+          "size": 16,
+          "kind": "EndgameMapContentSet"
+        },
+        "CorruptedPin": {
+          "offset": 108,
+          "size": 16,
+          "kind": "EndgameMapPins"
+        },
+        "MapPinCompleted": {
+          "offset": 132,
+          "size": 16,
+          "kind": "EndgameMapPins"
+        },
+        "ObjectiveDescription": {
+          "offset": 148,
+          "size": 16,
+          "kind": "ClientStrings2"
+        },
+        "SpecialMapText": {
+          "offset": 164,
+          "size": 8,
+          "kind": "string"
+        },
+        "SpecialMapFlavourText": {
+          "offset": 172,
+          "size": 8,
+          "kind": "string"
+        },
+        "SpecialMapHelpText": {
+          "offset": 180,
+          "size": 8,
+          "kind": "string"
+        },
+        "MapContent": {
+          "offset": 210,
+          "size": 16,
+          "kind": "[EndgameMapContent]"
+        }
+      }
+    },
+    "Mods": {
+      "row_size": 701,
+      "fields": {
+        "Id": {
+          "offset": 0,
+          "size": 8,
+          "kind": "string"
+        },
+        "HASH16": {
+          "offset": 8,
+          "size": 2,
+          "kind": "u16"
+        },
+        "ModType": {
+          "offset": 10,
+          "size": 16,
+          "kind": "ModType"
+        },
+        "Level": {
+          "offset": 26,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat1": {
+          "offset": 30,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "Stat2": {
+          "offset": 46,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "Stat3": {
+          "offset": 62,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "Stat4": {
+          "offset": 78,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "Domain": {
+          "offset": 94,
+          "size": 4,
+          "kind": "ModDomains"
+        },
+        "Name": {
+          "offset": 98,
+          "size": 8,
+          "kind": "string"
+        },
+        "GenerationType": {
+          "offset": 106,
+          "size": 4,
+          "kind": "ModGenerationType"
+        },
+        "Families": {
+          "offset": 110,
+          "size": 16,
+          "kind": "[ModFamily]"
+        },
+        "Stat1Value": {
+          "offset": 126,
+          "size": 8,
+          "kind": "i32"
+        },
+        "Stat2Value": {
+          "offset": 134,
+          "size": 8,
+          "kind": "i32"
+        },
+        "Stat3Value": {
+          "offset": 142,
+          "size": 8,
+          "kind": "i32"
+        },
+        "Stat4Value": {
+          "offset": 150,
+          "size": 8,
+          "kind": "i32"
+        },
+        "SpawnWeight_Tags": {
+          "offset": 158,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "Tags": {
+          "offset": 190,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "GrantedEffectsPerLevel": {
+          "offset": 206,
+          "size": 16,
+          "kind": "[GrantedEffectsPerLevel]"
+        },
+        "AuraFlags": {
+          "offset": 222,
+          "size": 16,
+          "kind": "[ModAuraFlags]"
+        },
+        "MonsterMetadata": {
+          "offset": 254,
+          "size": 8,
+          "kind": "string"
+        },
+        "MonsterKillAchievements": {
+          "offset": 262,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "ChestModType": {
+          "offset": 278,
+          "size": 16,
+          "kind": "[ModType]"
+        },
+        "Stat5Value": {
+          "offset": 294,
+          "size": 8,
+          "kind": "i32"
+        },
+        "Stat5": {
+          "offset": 302,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "FullAreaClear_AchievementItems": {
+          "offset": 318,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "AchievementItems": {
+          "offset": 334,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "GenerationWeight_Tags": {
+          "offset": 350,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "GenerationWeight_Values": {
+          "offset": 366,
+          "size": 16,
+          "kind": "[i32]"
+        },
+        "ModifyMapsAchievements": {
+          "offset": 382,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "Stat6Value": {
+          "offset": 398,
+          "size": 8,
+          "kind": "i32"
+        },
+        "Stat6": {
+          "offset": 406,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "MaxLevel": {
+          "offset": 422,
+          "size": 4,
+          "kind": "i32"
+        },
+        "CraftingItemClassRestrictions": {
+          "offset": 427,
+          "size": 16,
+          "kind": "[ItemClasses]"
+        },
+        "MonsterOnDeath": {
+          "offset": 443,
+          "size": 8,
+          "kind": "string"
+        },
+        "HeistAchievements": {
+          "offset": 455,
+          "size": 16,
+          "kind": "[AchievementItems]"
+        },
+        "Stat7Value": {
+          "offset": 471,
+          "size": 8,
+          "kind": "i32"
+        },
+        "Stat7": {
+          "offset": 479,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "Stat8": {
+          "offset": 495,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "Stat8Value": {
+          "offset": 511,
+          "size": 8,
+          "kind": "i32"
+        },
+        "InfluenceType": {
+          "offset": 519,
+          "size": 4,
+          "kind": "InfluenceTypes"
+        },
+        "ImplicitTags": {
+          "offset": 523,
+          "size": 16,
+          "kind": "[Tags]"
+        },
+        "HasHardmodeStatValues": {
+          "offset": 539,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Stat1MinHardmode": {
+          "offset": 540,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat1MaxHardmode": {
+          "offset": 544,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat2MinHardmode": {
+          "offset": 548,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat2MaxHardmode": {
+          "offset": 552,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat3MinHardmode": {
+          "offset": 556,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat3MaxHardmode": {
+          "offset": 560,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat4MinHardmode": {
+          "offset": 564,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat4MaxHardmode": {
+          "offset": 568,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat5MinHardmode": {
+          "offset": 572,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat5MaxHardmode": {
+          "offset": 576,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat6MinHardmode": {
+          "offset": 580,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat6MaxHardmode": {
+          "offset": 584,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat7MinHardmode": {
+          "offset": 588,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat7MaxHardmode": {
+          "offset": 592,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat8MinHardmode": {
+          "offset": 596,
+          "size": 4,
+          "kind": "i32"
+        },
+        "Stat8MaxHardmode": {
+          "offset": 600,
+          "size": 4,
+          "kind": "i32"
+        },
+        "BuffTemplate": {
+          "offset": 604,
+          "size": 16,
+          "kind": "BuffTemplates"
+        },
+        "ArchnemesisMinionMod": {
+          "offset": 620,
+          "size": 16,
+          "kind": "Mods"
+        },
+        "HASH32": {
+          "offset": 636,
+          "size": 4,
+          "kind": "u32"
+        },
+        "BuffTemplate2": {
+          "offset": 640,
+          "size": 16,
+          "kind": "[BuffTemplates]"
+        },
+        "RadiusJewelType": {
+          "offset": 676,
+          "size": 4,
+          "kind": "i32"
+        },
+        "IsEssenceOnlyModifier": {
+          "offset": 680,
+          "size": 1,
+          "kind": "bool"
+        },
+        "SpawnLevel_Override": {
+          "offset": 681,
+          "size": 4,
+          "kind": "i32"
+        },
+        "SpawnWeight_Values": {
+          "offset": 685,
+          "size": 16,
+          "kind": "[i32]"
+        }
+      }
+    },
+    "Stats": {
+      "row_size": 122,
+      "fields": {
+        "Id": {
+          "offset": 0,
+          "size": 8,
+          "kind": "string"
+        },
+        "IsPublic": {
+          "offset": 8,
+          "size": 1,
+          "kind": "bool"
+        },
+        "IsLocal": {
+          "offset": 9,
+          "size": 1,
+          "kind": "bool"
+        },
+        "IsWeaponLocal": {
+          "offset": 10,
+          "size": 1,
+          "kind": "bool"
+        },
+        "Semantic": {
+          "offset": 11,
+          "size": 4,
+          "kind": "StatSemantics"
+        },
+        "IsParty": {
+          "offset": 15,
+          "size": 1,
+          "kind": "bool"
+        },
+        "IsVirtual": {
+          "offset": 16,
+          "size": 1,
+          "kind": "bool"
+        },
+        "MainHandAlias_Stat": {
+          "offset": 17,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "OffHandAlias_Stat": {
+          "offset": 33,
+          "size": 16,
+          "kind": "Stats"
+        },
+        "IsProxied": {
+          "offset": 49,
+          "size": 1,
+          "kind": "bool"
+        },
+        "HASH32": {
+          "offset": 50,
+          "size": 4,
+          "kind": "u32"
+        },
+        "BelongsActiveSkills": {
+          "offset": 54,
+          "size": 16,
+          "kind": "[ActiveSkills]"
+        },
+        "Category": {
+          "offset": 70,
+          "size": 16,
+          "kind": "PassiveSkillStatCategories"
+        },
+        "IsApplyDamageFunctionStat": {
+          "offset": 87,
+          "size": 1,
+          "kind": "bool"
+        },
+        "IsScalable": {
+          "offset": 88,
+          "size": 1,
+          "kind": "bool"
+        },
+        "ContextFlags": {
+          "offset": 89,
+          "size": 16,
+          "kind": "[VirtualStatContextFlags]"
+        },
+        "DotFlag": {
+          "offset": 105,
+          "size": 16,
+          "kind": "[VirtualStatContextFlags]"
+        },
+        "WeaponHandCheck": {
+          "offset": 121,
+          "size": 1,
+          "kind": "bool"
+        }
+      }
+    },
+    "Tags": {
+      "row_size": 44,
+      "fields": {
+        "Id": {
+          "offset": 0,
+          "size": 8,
+          "kind": "string"
+        },
+        "HASH32": {
+          "offset": 8,
+          "size": 4,
+          "kind": "u32"
+        },
+        "DisplayString": {
+          "offset": 12,
+          "size": 8,
+          "kind": "string"
+        },
+        "UiHints": {
+          "offset": 36,
+          "size": 8,
+          "kind": "string"
+        }
+      }
+    }
+  }
+}

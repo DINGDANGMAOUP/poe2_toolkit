@@ -1,0 +1,23 @@
+name: Refresh signed update feed
+on:
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: application-release
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Renew existing verified release metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_UPDATE_SIGNING_KEY: ${{ secrets.APP_UPDATE_SIGNING_KEY }}
+        run: python3 .github/scripts/publish.py refresh

@@ -1,0 +1,18 @@
+{
+  "package": "pathfinder_geometry",
+  "version": "0.5.1",
+  "declared_license": "MIT/Apache-2.0",
+  "selected_license": "MIT",
+  "authors": [
+    "Patrick Walton <pcwalton@mimiga.net>"
+  ],
+  "copyright_notices": [
+    "Copyright © 2019 The Pathfinder Project Developers.",
+    "Copyright © 2020 The Pathfinder Project Developers."
+  ],
+  "repository": "https://github.com/servo/pathfinder",
+  "registry": "https://crates.io/crates/pathfinder_geometry/0.5.1",
+  "source_commit": "a5e98fac00f433fe2ff4b2135383d82491b8bfc5",
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}

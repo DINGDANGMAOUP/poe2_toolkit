@@ -1,0 +1,15 @@
+{
+  "package": "leaky-cow",
+  "version": "0.1.1",
+  "declared_license": "MIT / Apache-2.0",
+  "selected_license": "MIT",
+  "authors": [
+    "Michael Howell <michael@notriddle.com>"
+  ],
+  "copyright_notices": [],
+  "repository": "https://github.com/notriddle/rust-leaky-cow",
+  "registry": "https://crates.io/crates/leaky-cow/0.1.1",
+  "source_commit": null,
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}

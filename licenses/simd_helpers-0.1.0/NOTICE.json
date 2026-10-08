@@ -1,0 +1,15 @@
+{
+  "package": "simd_helpers",
+  "version": "0.1.0",
+  "declared_license": "MIT",
+  "selected_license": "MIT",
+  "authors": [
+    "Luca Barbato <lu_zero@gentoo.org>"
+  ],
+  "copyright_notices": [],
+  "repository": "https://github.com/lu-zero/simd_helpers",
+  "registry": "https://crates.io/crates/simd_helpers/0.1.0",
+  "source_commit": "ca1a2f84aa386d758e98f8a609d990263932fb85",
+  "upstream_notices": [],
+  "license_text": "https://spdx.org/licenses/MIT.html"
+}
