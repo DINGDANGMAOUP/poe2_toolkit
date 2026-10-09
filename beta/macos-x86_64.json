@@ -1,0 +1,4 @@
+{
+  "payload": "{\"protocol\":1,\"channel\":\"beta\",\"sequence\":1791504913839,\"target\":\"macos-x86_64\",\"asset\":{\"PackageId\":\"POE2Toolkit\",\"Version\":\"0.1.0\",\"Type\":\"Full\",\"FileName\":\"macos-x86_64-POE2Toolkit-0.1.0-beta-full.nupkg\",\"SHA1\":\"25523A7AAA3657C9DC530DDD7212F894603F317B\",\"SHA256\":\"54362E617C047C56D6C321D89A27A81C748E54ECB9663F1878A0535C6132B79C\",\"Size\":25111944},\"package_url\":\"https://github.com/DINGDANGMAOUP/poe2_toolkit/releases/download/v0.1.0/macos-x86_64-POE2Toolkit-0.1.0-beta-full.nupkg\",\"published_at\":\"2026-10-09T00:14:13.839470+00:00\",\"expires_at\":\"2027-01-07T00:15:13.839470+00:00\"}",
+  "signature_hex": "996028ca1db19f8ac334b23e977f97f619cd2e634565ca306b0da55663a3cec61a4cd0f9f51b067c7d749e00edccc1274ffab4024e8f3aa492cf4e303431480c"
+}
