@@ -307,10 +307,14 @@ impl Planner<'_> {
         let mut changes = BTreeMap::new();
         for row in 0..english.rows {
             let identity = english.text(row, id_field)?;
+            // Game tables contain both Metadata/Items/ and Metadata/items/.
+            // Fold only for namespace checks; preserve the exact record identity.
+            let item_path = identity.to_ascii_lowercase();
             if !words {
                 ensure!(
-                    identity.starts_with("Metadata/Items/"),
-                    "BaseItemTypes 身份非法"
+                    item_path.starts_with("metadata/items/"),
+                    "BaseItemTypes 第 {} 行的物品路径无效：{identity}",
+                    row + 1
                 );
             }
             let before = localized.text(row, text_field)?;
@@ -325,7 +329,7 @@ impl Planner<'_> {
                     .previous(&file, &identity, Feature::TabletNames)
                     .is_some()
             } else {
-                identity.starts_with("Metadata/Items/TowerAugment/")
+                item_path.starts_with("metadata/items/toweraugment/")
             };
             let feature = if is_tablet {
                 Feature::TabletNames
@@ -361,7 +365,7 @@ impl Planner<'_> {
             if self.profile.game == GameId::Poe2
                 && !words
                 && !is_tablet
-                && !identity.starts_with("Metadata/Items/Currency/")
+                && !item_path.starts_with("metadata/items/currency/")
             {
                 continue;
             }

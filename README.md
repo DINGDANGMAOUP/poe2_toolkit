@@ -12,7 +12,7 @@
 
 ## 安装
 
-从 [Releases](https://github.com/DINGDANGMAOUP/poe2_toolkit/releases) 下载 **0.1.0 · Beta 1**。
+从 [Releases](https://github.com/DINGDANGMAOUP/poe2_toolkit/releases) 下载最新内测版。
 
 | 平台 | 安装包 |
 | --- | --- |
