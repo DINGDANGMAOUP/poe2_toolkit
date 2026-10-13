@@ -10,6 +10,8 @@ mod affixes;
 
 const LOCAL: &str = "data/balance/simplified chinese";
 const ENGLISH: &str = "data/balance";
+// Wordlists.UNIQUE_ITEM in both pinned game schemas (one-based enum).
+const UNIQUE_ITEM_WORDLIST: i32 = 6;
 
 struct Planner<'a> {
     profile: &'a Profile,
@@ -283,14 +285,27 @@ impl Planner<'_> {
         );
         let id_field = if words { "Text" } else { "Id" };
         let text_field = if words { "Text2" } else { "Name" };
-        let mut identities = BTreeSet::new();
+        let mut identities = BTreeMap::<String, usize>::new();
         let mut names = BTreeMap::<String, usize>::new();
+        let mut rows = Vec::new();
         for row in 0..english.rows {
+            if words {
+                let wordlist = english.integer(row, "Wordlist")?;
+                ensure!(
+                    localized.integer(row, "Wordlist")? == wordlist,
+                    "Words 第 {} 行的中英文词条类别不一致",
+                    row + 1
+                );
+                // Words also holds item/monster/strongbox name fragments.
+                // Their repeated text is valid and must never receive prices.
+                if wordlist != UNIQUE_ITEM_WORDLIST {
+                    continue;
+                }
+            }
             let identity = english.text(row, id_field)?;
-            ensure!(
-                identities.insert(identity.clone()),
-                "{table_name} 身份重复，无法唯一关联"
-            );
+            let count = identities.entry(identity.clone()).or_default();
+            *count += 1;
+            ensure!(words || *count == 1, "{table_name} 身份重复，无法唯一关联");
             ensure!(
                 localized.text(row, id_field)? == identity,
                 "{table_name} 中英文身份顺序不一致"
@@ -302,11 +317,23 @@ impl Planner<'_> {
             ]) {
                 *names.entry(name).or_default() += 1;
             }
+            rows.push(row);
+        }
+        let ambiguous = identities.values().filter(|count| **count > 1).count();
+        if words && ambiguous > 0 {
+            self.warnings.insert(format!(
+                "{ambiguous} 个传奇名称对应多个词条，已跳过价格标注"
+            ));
         }
         let snapshot = self.snapshot;
         let mut changes = BTreeMap::new();
-        for row in 0..english.rows {
+        for row in rows {
             let identity = english.text(row, id_field)?;
+            // Keep ownership and quote evidence unique even when a provider
+            // supplies a metadata_id, which bypasses display-name matching.
+            if words && identities.get(&identity) != Some(&1) {
+                continue;
+            }
             // Game tables contain both Metadata/Items/ and Metadata/items/.
             // Fold only for namespace checks; preserve the exact record identity.
             let item_path = identity.to_ascii_lowercase();
