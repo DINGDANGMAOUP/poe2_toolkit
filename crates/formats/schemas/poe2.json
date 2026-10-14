@@ -409,6 +409,11 @@
           "offset": 210,
           "size": 16,
           "kind": "[EndgameMapContent]"
+        },
+        "RumourText": {
+          "offset": 227,
+          "size": 8,
+          "kind": "string"
         }
       }
     },

@@ -57,8 +57,8 @@ impl Table {
         );
         let rows = u32::from_le_bytes(bytes[..4].try_into()?) as usize;
         ensure!(rows <= 250_000, "DAT 行数超限");
-        // Legacy BaseItemTypes/Stats fields are explicitly documented by the
-        // reference reader. No legacy Mods offsets are inferred: an unknown
+        // Legacy fields are documented by the reference reader and restore
+        // resources. No legacy Mods offsets are inferred: an unknown
         // complete layout must be reviewed before it becomes writable.
         if game == poe2_core::GameId::Poe2
             && bytes.get(4 + rows * layout.row_size..4 + rows * layout.row_size + 8)
@@ -66,8 +66,8 @@ impl Table {
         {
             let legacy = match name {
                 "BaseItemTypes" => Some(360),
-
                 "Stats" => Some(106),
+                "EndgameMaps" => Some(239),
                 _ => None,
             };
             if let Some(width) = legacy
@@ -79,6 +79,9 @@ impl Table {
                         matches!(key.as_str(), "Id" | "Name" | "Tags" | "InheritsFrom")
                     }),
                     "Stats" => layout.fields.retain(|key, _| key == "Id"),
+                    "EndgameMaps" => layout.fields.retain(|key, _| {
+                        matches!(key.as_str(), "WorldArea" | "FlavourText" | "RumourText")
+                    }),
                     _ => {}
                 }
             }

@@ -7,6 +7,8 @@ use std::collections::{BTreeMap, BTreeSet};
 
 #[path = "affixes.rs"]
 mod affixes;
+#[path = "islands.rs"]
+mod islands;
 
 const LOCAL: &str = "data/balance/simplified chinese";
 const ENGLISH: &str = "data/balance";
@@ -432,67 +434,6 @@ impl Planner<'_> {
                 ensure!(verify.text(row, &field)? == text, "DAT 名称读回不一致");
             }
             self.replacements.insert(file, bytes);
-        }
-        Ok(())
-    }
-    fn islands(&mut self) -> Result<()> {
-        if !self.enabled(Feature::MapHints) {
-            return Ok(());
-        }
-        let path = format!("{LOCAL}/endgamemaps.datc64");
-        if !self.loose.has(&path)? {
-            self.warnings
-                .insert("缺少 EndgameMaps 资源，岛屿提示未适配".into());
-            return Ok(());
-        }
-        let maps = self.table(LOCAL, "EndgameMaps")?;
-        let areas = self.table(ENGLISH, "WorldAreas")?;
-        let mut changes = BTreeMap::new();
-        let mut ids = BTreeSet::new();
-        for row in 0..maps.rows {
-            let area_row = maps
-                .reference(row, "WorldArea")?
-                .context("EndgameMaps 缺少区域引用")?;
-            let identity = areas.text(area_row, "Id")?;
-            ensure!(ids.insert(identity.clone()), "EndgameMaps 区域身份重复");
-            let name = areas.text(area_row, "Name")?;
-            let candidates: Vec<_> = self
-                .rules
-                .islands
-                .iter()
-                .filter(|r| {
-                    r.id == format!("island:{identity}") || r.id == format!("island:{name}")
-                })
-                .collect();
-            if candidates.len() != 1 {
-                continue;
-            }
-            // Name-based catalogue keys are admitted only if the current client
-            // resolves them to exactly one stable WorldAreas identity.
-            let mut count = 0;
-            for n in 0..areas.rows {
-                if areas.text(n, "Name")? == name {
-                    count += 1;
-                }
-            }
-            ensure!(count == 1, "岛屿目录名称不能唯一关联 WorldAreas");
-            let before = maps.text(row, "FlavourText")?;
-            let after = format!("{} [{}]", before, candidates[0].text());
-            self.record(
-                &path,
-                &identity,
-                Feature::MapHints,
-                &before,
-                &after,
-                "WorldArea 引用关联；保留原传言",
-            );
-            changes.insert((row, "FlavourText".into()), after);
-        }
-        if changes.is_empty() {
-            self.warnings
-                .insert("当前 EndgameMaps 没有唯一匹配的岛屿目录项".into());
-        } else {
-            self.replacements.insert(path, maps.rewrite(&changes)?);
         }
         Ok(())
     }
